@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Women Safety App</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Women Safety Companion</h1>
+  </header>
+
+  <main>
+    <section class="main-controls">
+
+      <button id="route-analysis">Analyze Route Safety</button>
+      <button id="fake-call">Generate Fake Call</button>
+      <button id="sos-button">Start Listening</button>
+<p id="status-text">Click the button to begin.</p>
+  <!-- Fake Call Modal -->
+  <div id="fake-call-modal" class="modal">
+    <div class="modal-content">
+      <div class="call-header">
+        <h3>Incoming Call</h3>
+      </div>
+      <div class="caller-info">
+        <p class="caller-name">Mom</p>
+        <p class="caller-number">+1 (555) 123‑4567</p>
+      </div>
+      <div class="call-actions">
+        <button id="answer-btn" class="answer-btn">Answer</button>
+        <button id="decline-btn" class="decline-btn">Decline</button>
+      </div>
+    </div>
+    <!-- Ringtone audio; looped until answered/declined -->
+    <audio id="ringtone" src="js/ringtone.mp3" loop></audio>
+  </div>
+
+<script src="voice-emergency.js"></script>
+
+    </section>
+    <section class="status">
+      <h2>Status Updates</h2>
+      <p id="status-text">Click the SOS button to begin listening.</p>
+      <!-- DEBUG OUTPUT -->
+      <pre id="debug-log" style="background:#fff4c1; padding:8px; border-radius:4px;">
+        Debug log will appear here…
+      </pre>
+    </section>
+    
+
+    <section class="status">
+      <h2>Status Updates</h2>
+      <p id="status-text">Awaiting voice command or user interaction.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Emergency Helpline: 112 (Auto-dial enabled)</p>
+  </footer>
+</body>
+</html>
+
