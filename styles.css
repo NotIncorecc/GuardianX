@@ -1,67 +1,179 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f9f9f9;
-  color: #222;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern, readable font */
+  margin: 0; /* Reset default margin */
+  background-color: #f4f4f4;
+  color: #333;
+  line-height: 1.6; /* Improved readability */
+  display: flex; /* For overall layout control */
+  flex-direction: column; /* Stack header, main, footer */
+  min-height: 100vh; /* Ensure footer stays at the bottom */
 }
 
 header {
-  background-color: #d62828;
+  background-color: #003049;
   color: white;
-  padding: 20px;
+  padding: 1.5em 20px; /* More vertical padding */
   text-align: center;
+  margin-bottom: 2em; /* Increased spacing below header */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+header h1 {
+  margin: 0; /* Remove default heading margin */
+  font-size: 2.2em; /* Slightly larger title */
+  font-weight: 400; /* Lighter font weight for a modern feel */
 }
 
 main {
-  flex: 1;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+  padding: 2em 20px; /* Increased padding */
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* More pronounced shadow */
+  margin-bottom: 2em; /* Space before footer */
+  flex-grow: 1; /* Allow main to take up remaining vertical space */
 }
 
 .main-controls {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  align-items: center;
+  display: grid; /* Use grid for better button layout */
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Responsive columns */
+  gap: 15px; /* Spacing between buttons */
+  margin-bottom: 2em; /* Space below buttons */
 }
 
 .main-controls button {
-  width: 80%;
-  max-width: 300px;
-  padding: 15px;
-  font-size: 16px;
+  padding: 12px 18px; /* Adjusted button padding */
   border: none;
-  border-radius: 6px;
-  background-color: #003049;
-  color: white;
+  border-radius: 8px; /* More rounded buttons */
   cursor: pointer;
+  font-size: 1em;
+  color: white;
+  background-color: #003049;
+  transition: background-color 0.3s ease, transform 0.2s ease-in-out; /* Added transform for subtle hover effect */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08); /* Button shadow */
+  text-align: center; /* Ensure text is centered */
 }
 
 .main-controls button:hover {
-  background-color: #005f73;
+  background-color: #1d3557;
+  transform: scale(1.05); /* Subtle scale on hover */
 }
 
-.status {
-  background-color: #eaeaea;
-  padding: 15px;
+#sos-button {
+  background-color: #d62828; /* Emphasize SOS button */
+  font-size: 1.3em; /* Slightly larger SOS text */
+  padding: 15px 25px; /* Larger padding for SOS */
+  font-weight: bold; /* Make SOS text bolder */
+}
+
+#sos-button:hover {
+  background-color: #c21f1f; /* Darker shade on hover */
+  transform: scale(1.08); /* Slightly more prominent hover effect */
+}
+
+#status-text {
+  margin-top: 1.5em;
+  font-size: 1.1em;
+  color: #555;
+  text-align: center; /* Center the status text */
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 10; /* Ensure it's on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5); /* Slightly darker overlay */
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 10% auto; /* Adjust top margin for better centering */
+  padding: 25px; /* Increased padding inside modal */
+  border: 1px solid #888;
+  width: 80%;
+  border-radius: 12px; /* More rounded modal */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.call-header h3 {
+  margin-top: 0;
+  color: #003049;
+  font-size: 1.6em;
+  margin-bottom: 15px; /* Space below header */
+}
+
+.caller-info p {
+  margin: 8px 0;
+  font-size: 1.1em;
+  color: #333;
+}
+
+.caller-name {
+  font-weight: bold;
+}
+
+.call-actions {
+  display: flex; /* Arrange buttons horizontally */
+  justify-content: center; /* Center the buttons */
+  margin-top: 20px;
+}
+
+.call-actions button {
+  padding: 12px 20px;
+  margin: 0 10px; /* Space between buttons */
+  border: none;
   border-radius: 8px;
-  text-align: center;
+  cursor: pointer;
+  font-size: 1em;
+  color: white;
+  transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+.call-actions button:hover {
+  transform: scale(1.05);
+}
+
+.answer-btn {
+  background-color: #4CAF50;
+}
+
+.answer-btn:hover {
+  background-color: #45a049;
+}
+
+.decline-btn {
+  background-color: #d62828; /* Consistent with SOS color */
+}
+
+.decline-btn:hover {
+  background-color: #c21f1f;
+}
+
+#debug-log {
+  background: #fff4c1;
+  padding: 15px; /* Increased padding */
+  border-radius: 8px; /* More rounded */
+  margin-top: 2em;
+  font-family: monospace; /* Monospace font for better readability of logs */
+  white-space: pre-wrap; /* Preserve line breaks */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 footer {
-  background-color: #333;
-  color: white;
   text-align: center;
-  padding: 10px;
+  padding: 1.5em 20px; /* Increased padding */
+  background-color: #eee;
+  border-radius: 8px 8px 0 0; /* Rounded top corners */
+  font-size: 0.9em;
+  color: #555;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05); /* Subtle top shadow */
 }
 
+footer p {
+  margin: 0; /* Remove default paragraph margin */
+}
