@@ -1,4 +1,3 @@
-// server.js
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -11,7 +10,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // Emergency keywords (for server-side verification)
-const EMERGENCY_KEYWORDS = ['help', 'save me', 'please help', 'emergency', 'call police'];
+const EMERGENCY_KEYWORDS = ['help', 'save me', 'please help', 'emergency', 'call police','ghost clan'];
 
 app.post('/emergency', (req, res) => {
   const { transcript } = req.body;
